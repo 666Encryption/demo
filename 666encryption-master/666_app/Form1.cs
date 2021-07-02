@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
 using System.IO;
 
 
@@ -87,30 +88,75 @@ namespace _666_app
             int key6 = rnd.Next(10, 99);
             textBox8.Text = Convert.ToString(key6);
 
+            int key7 = rnd.Next(10, 99);
+            textBox9.Text = Convert.ToString(key7);
+            int key8 = rnd.Next(10, 99);
+            textBox10.Text = Convert.ToString(key8);
+            int key9 = rnd.Next(10, 99);
+            textBox11.Text = Convert.ToString(key9);
+            int key10 = rnd.Next(10, 99);
+            textBox12.Text = Convert.ToString(key10);
+            int key11 = rnd.Next(10, 99);
+            textBox13.Text = Convert.ToString(key11);
+            int key12 = rnd.Next(10, 99);
+            textBox14.Text = Convert.ToString(key12);
+
+            int key13 = rnd.Next(10, 99);
+            textBox15.Text = Convert.ToString(key13);
+            int key14 = rnd.Next(10, 99);
+            textBox16.Text = Convert.ToString(key14);
+            int key15 = rnd.Next(10, 99);
+            textBox17.Text = Convert.ToString(key15);
+            int key16 = rnd.Next(10, 99);
+            textBox18.Text = Convert.ToString(key16);
+            int key17 = rnd.Next(10, 99);
+            textBox19.Text = Convert.ToString(key17);
+            int key18 = rnd.Next(10, 99);
+            textBox20.Text = Convert.ToString(key18);
+
+
             string counter = "0";
             //counter++;
 
             //Encrypts a string.
-            Encrypt(textBox1.Text, counter, str1, key1, key2, key3, key4, key5, key6);
+            using (StringReader sReader = new StringReader(textBox1.Text))
+            {
+                textBox2.Text = "";
+                int n = 1;
+                /////////////////////////////////////////////////////////////////////////////////////////////////////
+                while (sReader.Peek() >= 0)
+                {
+                    int asc = (char)sReader.Read();
+                    //MessageBox.Show(Convert.ToString(asc));
+                    
+                    if((n - 1) % 3 == 0) Encrypt(sReader, counter, str1, key1, key2, key3, key4, key5, key6, asc);
+                    if((n - 1) % 3 == 1) Encrypt(sReader, counter, str1, key7, key8, key9, key10, key11, key12, asc);
+                    if((n - 1) % 3 == 2) Encrypt(sReader, counter, str1, key13, key14, key15, key16, key17, key18, asc);
+
+                    int code = Convert.ToInt32(n++);
+                    textBox23.Text = Convert.ToString(code);
+
+                }
+            }
 
 
         }
 
 
-        private void Encrypt(string contents, string counter, string str1, int key1, int key2, int key3, int key4, int key5, int key6)
+        private void Encrypt(StringReader sr, string counter, string str1, int key1, int key2, int key3, int key4, int key5, int key6, int asc)
         {
             int n = 1;
 
-            textBox2.Text = "";
+            //textBox2.Text = "";
 
-            using (StringReader sr = new StringReader(contents))
-            {
+            //using (StringReader sr = new StringReader(contents))
+            //{
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
-                while (sr.Peek() >= 0)
-                {
+                //while (sr.Peek() >= 0)
+                //{
 
-                    int asc = (char)sr.Read();
+                    //int asc = (char)sr.Read();
 
                     string message = Convert.ToString(asc);
 
@@ -123,7 +169,7 @@ namespace _666_app
 
                     if (message.Length == 1)
                     {
-
+                        //MessageBox.Show("length: 1");
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -199,7 +245,7 @@ namespace _666_app
                             //int counter = 0;
 
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
                             //////////////////////////////////////////////////////////////////////////////////
@@ -332,6 +378,8 @@ namespace _666_app
                     if (message.Length == 2)
                     {
 
+                        //MessageBox.Show("length: 2");
+
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -402,7 +450,7 @@ namespace _666_app
                             textBox2.Text += str1;
                             // int counter = 0;
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
                              //////////////////////////////////////////////////////////////////////////////////
@@ -536,7 +584,7 @@ namespace _666_app
 
                     if (message.Length == 3)
                     {
-
+                        //MessageBox.Show("length: 3");
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -606,7 +654,7 @@ namespace _666_app
                             textBox2.Text += str1;
                             //int counter = 0;
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             // textBox23.Text += c6;
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
@@ -737,7 +785,7 @@ namespace _666_app
 
                     if (message.Length == 4)
                     {
-
+                        //MessageBox.Show("length: 4");
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -809,7 +857,7 @@ namespace _666_app
                             textBox2.Text += str1;
                             // int counter = 0;
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
                             //////////////////////////////////////////////////////////////////////////////////
@@ -944,7 +992,7 @@ namespace _666_app
 
                     if (message.Length == 5)
                     {
-
+                        //MessageBox.Show("length: 5");
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -1017,7 +1065,7 @@ namespace _666_app
                             textBox2.Text += str1;
                             //int counter = 0;
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
                             //////////////////////////////////////////////////////////////////////////////////
@@ -1150,7 +1198,7 @@ namespace _666_app
 
                     if (message.Length == 6)
                     {
-
+                        //MessageBox.Show("length: 6");
 
 
                         if (key1 != key2 && key3 != key4 && key5 != key6)
@@ -1223,7 +1271,7 @@ namespace _666_app
                             textBox2.Text += str1;
                             //int counter = 0;
                             int code = Convert.ToInt32(n++);
-                            textBox23.Text = Convert.ToString(code);
+                            //textBox23.Text = Convert.ToString(code);
                             //////////////////////////////////////////////////////////////////////////////////
                             /*
                             //////////////////////////////////////////////////////////////////////////////////
@@ -1358,11 +1406,11 @@ namespace _666_app
 
 
 
-                }
-            }
+                //}
+            //}
         }
 
-        private void Decrypt(string contents, string counter, int key1, int key2, int key3, int key4, int key5, int key6)
+        private void Decrypt(string contents, string counter, int key1, int key2, int key3, int key4, int key5, int key6, int key7, int key8, int key9, int key10, int key11, int key12, int key13, int key14, int key15, int key16, int key17, int key18)
         {
 
             using (StringReader sr = new StringReader(contents))
@@ -1376,108 +1424,184 @@ namespace _666_app
                 textBox23.Text = Convert.ToString(counter);
 
                 int i = 0;
+                int pos, pos2, pos3, pos4, pos5, pos6, num;
+                char c, c2, c3, c4, c5, c6, asc;
                 while (i < int.Parse(counter))
                 {
-
                     string temp = "";
 
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos = key1;
-                    char c = str1[pos + i * 108];
-                    temp += c;
+                    if (i % 3 == 0)
+                    {
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos = key1;
+                        c = str1[pos + i * 108];
+                        temp += c;
 
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos2 = key2;
-                    char c2 = str1[pos2 + i * 108];
-                    temp += c2;
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos3 = key3;
-                    char c3 = str1[pos3 + i * 108];
-                    temp += c3;
-                    //////////////////////////////////////////////////////////////////////////////////
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos2 = key2;
+                        c2 = str1[pos2 + i * 108];
+                        temp += c2;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos3 = key3;
+                        c3 = str1[pos3 + i * 108];
+                        temp += c3;
+                        //////////////////////////////////////////////////////////////////////////////////
 
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos4 = key4;
-                    char c4 = str1[pos4 + i * 108];
-                    temp += c4;
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos5 = key5;
-                    char c5 = str1[pos5 + i * 108];
-                    temp += c5;
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int pos6 = key6;
-                    char c6 = str1[pos6 + i * 108];
-                    temp += c6;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos4 = key4;
+                        c4 = str1[pos4 + i * 108];
+                        temp += c4;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos5 = key5;
+                        c5 = str1[pos5 + i * 108];
+                        temp += c5;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos6 = key6;
+                        c6 = str1[pos6 + i * 108];
+                        temp += c6;
 
-                    //////////////////////////////////////////////////////////////////////////////////
-                    int num = int.Parse(temp);
-                    char asc = Convert.ToChar(num);
-                    textBox24.Text += asc;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        num = Int32.Parse(temp.Substring(3, 3));
+                        asc = Convert.ToChar(num);
+                        textBox24.Text += asc;
+                    }
+                    else if (i % 3 == 1)
+                    {
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos = key7;
+                        c = str1[pos + i * 108];
+                        temp += c;
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos2 = key8;
+                        c2 = str1[pos2 + i * 108];
+                        temp += c2;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos3 = key9;
+                        c3 = str1[pos3 + i * 108];
+                        temp += c3;
+                        //////////////////////////////////////////////////////////////////////////////////
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos4 = key10;
+                        c4 = str1[pos4 + i * 108];
+                        temp += c4;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos5 = key11;
+                        c5 = str1[pos5 + i * 108];
+                        temp += c5;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos6 = key12;
+                        c6 = str1[pos6 + i * 108];
+                        temp += c6;
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        //num = Int32.Parse(temp);
+                        num = Int32.Parse(temp.Substring(3, 3));
+                        asc = Convert.ToChar(num);
+                        textBox24.Text += asc;
+                    }
+                    else if (i % 3 == 2)
+                    {
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos = key13;
+                        c = str1[pos + i * 108];
+                        temp += c;
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos2 = key14;
+                        c2 = str1[pos2 + i * 108];
+                        temp += c2;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos3 = key15;
+                        c3 = str1[pos3 + i * 108];
+                        temp += c3;
+                        //////////////////////////////////////////////////////////////////////////////////
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos4 = key16;
+                        c4 = str1[pos4 + i * 108];
+                        temp += c4;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos5 = key17;
+                        c5 = str1[pos5 + i * 108];
+                        temp += c5;
+                        //////////////////////////////////////////////////////////////////////////////////
+                        pos6 = key18;
+                        c6 = str1[pos6 + i * 108];
+                        temp += c6;
+
+                        //////////////////////////////////////////////////////////////////////////////////
+                        //num = Int32.Parse(temp);
+                        num = Int32.Parse(temp.Substring(3, 3));
+                        asc = Convert.ToChar(num);
+                        textBox24.Text += asc;
+                    }
+                    //MessageBox.Show(temp.Substring(3, 3) + " " + textBox24.Text);
 
                     i++;
 
+
+                    //////////////////////////////////////////////////////////////////////////////////
+                    /*
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos7 = key7;
+                    char c7 = str1[pos7];
+                    textBox21.Text += c7;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos8 = key8;
+                    char c8 = str1[pos8];
+                    textBox21.Text += c8;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos9 = key9;
+                    char c9 = str1[pos9];
+                    textBox21.Text += c9;
+                    //////////////////////////////////////////////////////////////////////////////////
+
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos10 = key10;
+                    char c10 = str1[pos10];
+                    textBox21.Text += c10;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos11 = key11;
+                    char c11 = str1[pos11];
+                    textBox21.Text += c11;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos12 = key12;
+                    char c12 = str1[pos12];
+                    textBox21.Text += c12;
+                    //////////////////////////////////////////////////////////////////////////////////
+
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos13 = key13;
+                    char c13 = str1[pos13];
+                    textBox21.Text += c13;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos14 = key4;
+                    char c14 = str1[pos14];
+                    textBox21.Text += c14;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos15 = key15;
+                    char c15 = str1[pos15];
+                    textBox21.Text += c15;
+                    //////////////////////////////////////////////////////////////////////////////////
+
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos16 = key16;
+                    char c16 = str1[pos16];
+                    textBox21.Text += c16;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos17 = key17;
+                    char c17 = str1[pos17];
+                    textBox21.Text += c17;
+                    //////////////////////////////////////////////////////////////////////////////////
+                    int pos18 = key18;
+                    char c18 = str1[pos18];
+                    textBox21.Text += c18;
+                    //////////////////////////////////////////////////////////////////////////////////
+                   */
+
                 }
-
-
-                //////////////////////////////////////////////////////////////////////////////////
-                /*
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos7 = key7;
-                char c7 = str1[pos7];
-                textBox21.Text += c7;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos8 = key8;
-                char c8 = str1[pos8];
-                textBox21.Text += c8;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos9 = key9;
-                char c9 = str1[pos9];
-                textBox21.Text += c9;
-                //////////////////////////////////////////////////////////////////////////////////
-
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos10 = key10;
-                char c10 = str1[pos10];
-                textBox21.Text += c10;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos11 = key11;
-                char c11 = str1[pos11];
-                textBox21.Text += c11;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos12 = key12;
-                char c12 = str1[pos12];
-                textBox21.Text += c12;
-                //////////////////////////////////////////////////////////////////////////////////
-
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos13 = key13;
-                char c13 = str1[pos13];
-                textBox21.Text += c13;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos14 = key4;
-                char c14 = str1[pos14];
-                textBox21.Text += c14;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos15 = key15;
-                char c15 = str1[pos15];
-                textBox21.Text += c15;
-                //////////////////////////////////////////////////////////////////////////////////
-
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos16 = key16;
-                char c16 = str1[pos16];
-                textBox21.Text += c16;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos17 = key17;
-                char c17 = str1[pos17];
-                textBox21.Text += c17;
-                //////////////////////////////////////////////////////////////////////////////////
-                int pos18 = key18;
-                char c18 = str1[pos18];
-                textBox21.Text += c18;
-                //////////////////////////////////////////////////////////////////////////////////
-               */
-
             }
         }
 
@@ -1510,7 +1634,7 @@ namespace _666_app
 
             textBox23.Text = Convert.ToString(textBox23.Text);
             // counter++;
-            /*
+            
             int key7 = Convert.ToInt32(textBox9.Text);
 
             int key8 = Convert.ToInt32(textBox10.Text);
@@ -1537,9 +1661,8 @@ namespace _666_app
 
             int key18 = Convert.ToInt32(textBox20.Text);
 
-            */
-
-            Decrypt(textBox2.Text, textBox23.Text, key1, key2, key3, key4, key5, key6);
+            
+            Decrypt(textBox2.Text, textBox23.Text, key1, key2, key3, key4, key5, key6, key7, key8, key9, key10, key11, key12, key13, key14, key15, key16, key17, key18);
 
         }
 
